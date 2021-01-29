@@ -1,4 +1,12 @@
-# MinIO Docs
+# MinIO Documentation for VMware Cloud Foundation
+
+This is the source repository for the MinIO documentation on the 
+VMware Cloud Foundation 4.2 MinIO plugin.
+
+This project uses Sphinx and a Gulp.js scss compilation pipeline to build a
+static site for hosting on docs.min.io. 
+
+Contributions are welcome. 
 
 ## Requirements
 
@@ -33,21 +41,17 @@ If you modify things, I suggest doing clean builds to make sure all artifacts ar
 rm -rf build/ && make html
 ```
 
+The easiest way to view the docs is to use `python -m http.server`:
+
+```shell
+python -m http.server --directory build/<branch>/html
+```
+
+If you're modifying any SCSS file, run `gulp watch` in a terminal *before*
+saving the SCSS to re-compile all css.
+
 Still need to work out deployment steps, but this should work for testing locally.
 
 The `source` directory contains all of the source files, including css and js.
 
 The `sphinxext` directory contains some python stuff related to the custom directive/roles, and its a rats nest right now.
-
-## TODO
-
-- Finish the remainder of the `mc`, `mc admin`, and `minio` reference material
-- Refine structure of reference pages
-- Transition all MinIO Features from legacy documentation and format for RST
-- Flesh out Kubernetes section (pending operator/plugin work completion)
-- Flesh out introduction / concepts section
-- Re-write security docs
-- Create references for KES, Sidekick, MCS, Gateway
-- Transition cookbook material as needed
-- Flesh out Baremetal deployment section
-- Scan for any remaining legacy material that needs migration
