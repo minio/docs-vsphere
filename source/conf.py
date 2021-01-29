@@ -53,16 +53,17 @@ extensions = [
 # Helpful for sites we tend to make lots of references to.
 
 extlinks = {
-    'kube-docs' : ('https://kubernetes.io/docs/%s', ''),
-    'minio-git' : ('https://github.com/minio/%s',''),
-    'github'    : ('https://github.com/%s',''),
-    'kube-api'  : ('https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/%s',''),
-    'aws-docs'  : ('https://docs.aws.amazon.com/%s',''),
-    's3-docs'   : ('https://docs.aws.amazon.com/AmazonS3/latest/dev/%s',''),
-    's3-api'    : ('https://docs.aws.amazon.com/AmazonS3/latest/API/%s',''),
-    'iam-docs'  : ('https://docs.aws.amazon.com/IAM/latest/UserGuide/%s',''),
-    'release'   : ('https://github.com/minio/mc/releases/tag/%s',''),
-    'legacy'    : ('https://docs.min.io/docs/%s',''),
+    'kube-docs'   : ('https://kubernetes.io/docs/%s', ''),
+    'minio-git'   : ('https://github.com/minio/%s',''),
+    'github'      : ('https://github.com/%s',''),
+    'kube-api'    : ('https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/%s',''),
+    'aws-docs'    : ('https://docs.aws.amazon.com/%s',''),
+    's3-docs'     : ('https://docs.aws.amazon.com/AmazonS3/latest/dev/%s',''),
+    's3-api'      : ('https://docs.aws.amazon.com/AmazonS3/latest/API/%s',''),
+    'iam-docs'    : ('https://docs.aws.amazon.com/IAM/latest/UserGuide/%s',''),
+    'release'     : ('https://github.com/minio/mc/releases/tag/%s',''),
+    'legacy'      : ('https://docs.min.io/docs/%s',''),
+    'vmware-docs' : ('https://docs.vmware.com/en/VMware-vSphere/%s',''),
 }
 
 # Add any paths that contain templates here, relative to this directory.
@@ -98,7 +99,7 @@ html_theme_options = {
     'show_relbars': 'false'
 }
 
-html_short_title = "Hybrid Cloud Object Storage"
+html_short_title = "MinIO Object Storage for VMware Cloud Foundation 4.2"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -109,7 +110,7 @@ html_css_files = ['css/main.min.css']
 
 html_js_files = ['js/main.js']
 
-html_title = 'MinIO Hybrid Cloud Documentation'
+html_title = 'MinIO Object Storage for VMware Cloud Foundation'
 
 # rst_epilog contains common replacements for all pages
 
@@ -118,6 +119,10 @@ rst_epilog = """
 .. |minio-operator-release| replace:: ``minio/k8s-operator:v3.0.28``
 
 .. |minio-server-release| replace::   ``minio/minio:RELEASE.2020-10-03T02-19-42Z``
+
+.. |vcf| replace:: :abbr:`VCF (VMware Cloud Foundation )`
+
+.. |dpp| replace:: :abbr:`DPp (VMware Data Persistence platform)`
 
 """
 

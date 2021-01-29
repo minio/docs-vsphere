@@ -24,7 +24,7 @@ A MinIO *user* is an identity that includes at minimum credentials
 consisting of an Access Key and Secret Key. MinIO requires all incoming 
 requests include credentials which match an existing user.
 
-DIAGRAM: Client Request -> User Auth -> Server Response
+.. DIAGRAM: Client Request -> User Auth -> Server Response
 
 If MinIO successfully *authenticates* an incoming request against either an 
 internally-managed or externally-managed identity, MinIO then checks if the 
@@ -56,7 +56,7 @@ MinIO checks whether the specified user is *authorized* to perform the
 requested operation. MinIO uses Policy-Based Access Control (PBAC) for 
 defining the actions and resources to which a client has access.
 
-DIAGRAM: Client Request -> Identity -> Policy -> Allowed/Denied
+.. DIAGRAM: Client Request -> Identity -> Policy -> Allowed/Denied
 
 MinIO policies are JSON documents with :iam-docs:`IAM-compatible syntax
 <reference_policies.html>`. Each MinIO user can have *one* attached policy for
@@ -125,20 +125,18 @@ network. The MinIO Operator by default deploys Tenants with auto-generated TLS
 certificates for each Tenant component. MinIO supports the 
 :rfc:`Server Name Indication (SNI) <6066#section-3>` extension and 
 allows Administrators to specify multiple custom TLS certificates for supporting
-HTTPS access to the Tenant through multiple domains. See <TUTORIAL> for 
-more information on deploying MinIO Tenants with custom certificates.
+HTTPS access to the Tenant through multiple domains. You can configure 
+custom TLS certificates during 
+:doc:`tenant creation </tutorials/deploy-minio-tenant>`.
 
 Object Encryption
 ~~~~~~~~~~~~~~~~~
 
 MinIO Tenants support Server-Side Encryption (SSE-S3) of objects using an
 external Key Management Service (KMS) such as Hashicorp Vault, Thales 
-CipherTrust (formerly Gemalto Keysecure), and Amazon KMS. 
-
-.. todo
-
-   Document SSE-S3 on MinIO
-
+CipherTrust (formerly Gemalto Keysecure), and Amazon KMS. You can 
+configure server-side encryption during 
+:doc:`tenant creation </tutorials/deploy-minio-tenant>`.
 
 
 .. toctree::
@@ -148,5 +146,3 @@ CipherTrust (formerly Gemalto Keysecure), and Amazon KMS.
    /tutorials/user-management
    /tutorials/group-management
    /tutorials/policy-management
-   /tutorials/server-side-encryption-thales
-   /tutorials/transport-layer-security
