@@ -1,7 +1,7 @@
 {
   "name": "docs-k8s",
   "version": "1.0.0",
-  "description": "MinIO Docs for Kubernetes",
+  "description": "MinIO Docs for VMware Cloud Foundation",
   "main": "index.rst",
   "scripts": {
     "watch": "gulp watch",
