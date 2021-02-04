@@ -116,18 +116,16 @@ html_title = 'MinIO Object Storage for VMware Cloud Foundation'
 
 rst_epilog = """
 
-.. |minio-operator-release| replace:: ``minio/k8s-operator:v3.0.28``
-
-.. |minio-server-release| replace::   ``minio/minio:RELEASE.2020-10-03T02-19-42Z``
-
 .. |vcf| replace:: :abbr:`VCF (VMware Cloud Foundation )`
 
 .. |dpp| replace:: :abbr:`DPp (VMware Data Persistence platform)`
+
+.. |minio-server-default| replace:: :minio-git:`RELEASE.2020-10-18T21-54-12Z <minio/tree/RELEASE.2020-10-18T21-54-12Z>`
 
 """
 
 rst_prolog = """
 
-.. |minio-operator-latest-version| replace:: v3.0.28
+
 
 """

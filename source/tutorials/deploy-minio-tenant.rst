@@ -760,6 +760,8 @@ creates the required resources for the Tenant.
 When the :guilabel:`Current State` reads as :guilabel:`Initialized`, the Tenant
 is ready to access.
 
+.. _minio-vsphere-create-connect:
+
 11) Connect to your Tenant
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 

@@ -71,6 +71,7 @@ Erasure Set
    /core-concepts/core-concepts
    /tutorials/deploy-minio-tenant
    /tutorials/manage-minio-tenant
+   /tutorials/monitor-minio-tenant
    /security/security
    /reference/production-recommendations
 
