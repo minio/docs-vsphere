@@ -29,6 +29,8 @@ MinIO tenant on using vSphere and the MinIO plugin.
 For managing an existing MinIO tenant, see 
 :doc:`/tutorials/manage-minio-tenant`.
 
+.. _minio-vsphere-inside-tenant:
+
 Inside a MinIO Tenant
 ---------------------
 
