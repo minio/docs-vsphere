@@ -4,8 +4,9 @@ MinIO for VMWare Cloud Foundation 4.2
 
 .. default-domain:: minio
 
-Welcome to the MinIO Object Storage documentation for VMware Cloud Foundation
-4.2.
+Welcome to the MinIO Object Storage documentation for 
+`VMware Cloud Foundation 4.2 
+<https://core.vmware.com/vmware-cloud-foundation?jmp=minio-docs>`__.
 
 MinIO is a Kubernetes-native object store designed to provide high performance
 with an S3-compatible API. |vcf| 4.2 includes MinIO's 

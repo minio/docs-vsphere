@@ -9,9 +9,6 @@ Deploy a MinIO Tenant
    :depth: 2
 
 
-Overview
---------
-
 This procedure documents deploying a MinIO object storage tenant using the 
 MinIO integration for the VMware Data Persistence platform (DPp) in |vcf| 4.2. 
 
@@ -21,52 +18,65 @@ has one or more ESXi hosts with direct-attached storage, where a storage
 policy exists for either vSAN Direct or vSAN SNA. 
 
 Prerequisites
-~~~~~~~~~~~~~
+-------------
 
-MinIO Plugin for vSphere 7
-   |vcf| 4.2 comes with the MinIO plugin installed but disabled by default. 
-   To enable the plugin, log into vSphere and select the cluster in which 
-   you want to deploy MinIO tenants. 
-
-   Click :guilabel:`Configure`, then navigate to :guilabel:`Supervisor Services`
-   and select :guilabel:`Services`. Locate the 
-   :guilabel:`MinIO` row and activate the radio button. Click 
-   :guilabel:`Enable` to enable the service.
-
-ESXi Hosts with Direct Attached Storage
-   Each ESXi host *must* have sufficient compute, memory, and direct-attached 
-   storage to support each pod provisioned as part of the tenant. 
-   MinIO requires one available ESXi host for each MinIO server pod deployed 
-   as part of the tenant.
-
-vSAN Direct or vSAN SNA Storage Policy
-   MinIO takes full advantage of the new |dpp| vSAN Direct and 
-   vSAN SNA storage policies. Ensure the policy includes sufficient storage to 
-   satisfy the requested capacity of the MinIO tenant.
+MinIO Plugin for vCenter
+~~~~~~~~~~~~~~~~~~~~~~~~
    
-   MinIO showcases best performance with locally-attached storage. MinIO
-   therefore *strongly recommends* vSAN Direct storage policies when 
-   provisioning MinIO tenant. 
+You must enable the MinIO plugin in vSphere prior to beginning this
+procedure. To enable the plugin, log into vSphere and select the cluster in
+which you want to deploy MinIO tenants. 
+
+Click :guilabel:`Configure`, then navigate to :guilabel:`Supervisor Services`
+and select :guilabel:`Services`. Locate the 
+:guilabel:`MinIO` row and activate the radio button. Click 
+:guilabel:`Enable` to enable the service.
+
+ESXi Hosts with Local Storage
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Each ESXi host *must* have sufficient compute, memory, and direct-attached local
+storage devices (SSD or HDD) to support each pod provisioned as part of the
+tenant. MinIO requires one available ESXi host for each MinIO server pod
+deployed as part of the tenant.
+
+MinIO showcases best performance with locally-attached storage. MinIO
+therefore *strongly recommends* vSAN Direct storage policies when 
+provisioning MinIO tenant. See 
+:vmware-docs:`Set Up vSAN Direct for vSphere with Tanzu 
+<7.0/vmware-vsphere-with-tanzu/GUID-B096E155-D58C-4F01-9FF1-DB29B4801C6D.html>`
+for more complete instructions. 
    
 Namespace per MinIO Tenant
-   MinIO limits one MinIO tenant per namespace. Create a new namespace 
-   *prior* to beginning the procedure. You can view and create namespaces 
-   in the vSphere interface by clicking the :guilabel:`Namespaces` tab for 
-   the cluster. Click :guilabel:`New Namespace` to create a new namespace 
-   for the MinIO tenant.
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   Attach the necessary vSAN Direct or vSAN SNA storage policies to the 
-   namespace. The MinIO tenant can only use storage policies attached to the 
-   namespace in which its deployed.
+MinIO limits one MinIO tenant per namespace. Create a new namespace *prior*
+to beginning the procedure. 
 
-   .. important::
+You can view and create namespaces in the vSphere interface by clicking the
+:guilabel:`Namespaces` tab for the cluster. Click :guilabel:`New Namespace`
+to create a new namespace for the MinIO tenant. After creating the namespace,
+return to the :guilabel:`Namespaces` tab and click on the namespace you
+created.
 
-      |vcf| allows setting namespace-level limitations on CPU, memory, and
-      storage. MinIO tenants are subject to these limitations. For CPU limits
-      specifically, |vcf| allows setting a *frequency* limitation. The MinIO
-      tenant respects this limitation for every allocated vCPU. If the namespace
-      CPU frequency limitation is too low, you may see performance throttling
-      even if the tenant has a large number of allocated vCPU.
+- Click :guilabel:`Edit Storage` on the :guilabel:`Storage` card to attach
+  the necessary vSAN Direct or vSAN SNA storage policies to the 
+  namespace. The MinIO tenant can only use storage policies attached to the 
+  namespace in which its deployed.
+
+- Click :guilabel:`Add Permissions` on the :guilabel:`Permissions` card to 
+  configure the necessary permissions for vCenter users. Specifically, only
+  users with the :guilabel:`Can Edit` permission on the namespace can create
+  MinIO tenants in the namespace.
+
+.. important::
+
+  |vcf| allows setting namespace-level limitations on CPU, memory, and
+  storage. MinIO tenants are subject to these limitations. For CPU limits
+  specifically, |vcf| allows setting a *frequency* limitation. The MinIO
+  tenant respects this limitation for every allocated vCPU. If the namespace
+  CPU frequency limitation is too low, you may see performance throttling
+  even if the tenant has a large number of allocated vCPU.
 
 Procedure
 ---------
