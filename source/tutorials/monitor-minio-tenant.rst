@@ -42,10 +42,10 @@ for instructions on downloading ``mc``.
 - Replace ``<TENANT-NAME>`` with the name of the MinIO tenant.
 
 - Replace ``<TENANT-URL>`` with the :ref:`endpoint 
-  <minio-vsphere-create-connect>` for the MinIO tenant. 
+  <minio-vcenter-create-connect>` for the MinIO tenant. 
 
 - Replace ``<ACCESS_KEY>`` and ``<SECRET_KEY>`` with the 
-  :ref:`root credentials <minio-vsphere-create-credentials>` for the MinIO 
+  :ref:`root credentials <minio-vcenter-create-credentials>` for the MinIO 
   tenant.
 
 The command returns a bearer token similar to the following:
@@ -123,7 +123,7 @@ select :guilabel:`Skyline Health`.
    :align: center
    :width: 90%
    :class: no-scaled-link
-   :alt: vSphere Skyline Health Monitoring.
+   :alt: vCenter Skyline Health Monitoring.
 
 MinIO lists health checks related to each tenant under the 
 :guilabel:`MinIO Service` section.

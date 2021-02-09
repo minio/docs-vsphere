@@ -23,8 +23,8 @@ Prerequisites
 MinIO Plugin for vCenter
 ~~~~~~~~~~~~~~~~~~~~~~~~
    
-You must enable the MinIO plugin in vSphere prior to beginning this
-procedure. To enable the plugin, log into vSphere and select the cluster in
+You must enable the MinIO plugin in vCenter prior to beginning this
+procedure. To enable the plugin, log into vCenter and select the cluster in
 which you want to deploy MinIO tenants. 
 
 Click :guilabel:`Configure`, then navigate to :guilabel:`Supervisor Services`
@@ -43,8 +43,8 @@ deployed as part of the tenant.
 MinIO showcases best performance with locally-attached storage. MinIO
 therefore *strongly recommends* vSAN Direct storage policies when 
 provisioning MinIO tenant. See 
-:vmware-docs:`Set Up vSAN Direct for vSphere with Tanzu 
-<7.0/vmware-vsphere-with-tanzu/GUID-B096E155-D58C-4F01-9FF1-DB29B4801C6D.html>`
+:vmware-docs:`Set Up vSAN Direct for vCenter with Tanzu 
+<7.0/vmware-vcenter-with-tanzu/GUID-B096E155-D58C-4F01-9FF1-DB29B4801C6D.html>`
 for more complete instructions. 
    
 Namespace per MinIO Tenant
@@ -53,7 +53,7 @@ Namespace per MinIO Tenant
 MinIO limits one MinIO tenant per namespace. Create a new namespace *prior*
 to beginning the procedure. 
 
-You can view and create namespaces in the vSphere interface by clicking the
+You can view and create namespaces in the vCenter interface by clicking the
 :guilabel:`Namespaces` tab for the cluster. Click :guilabel:`New Namespace`
 to create a new namespace for the MinIO tenant. After creating the namespace,
 return to the :guilabel:`Namespaces` tab and click on the namespace you
@@ -81,12 +81,12 @@ created.
 Procedure
 ---------
 
-.. _minio-vsphere-create:
+.. _minio-vcenter-create:
 
 1) Open the Tenant Creation Modal
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-From the vSphere interface, select the cluster in which you want to 
+From the vCenter interface, select the cluster in which you want to 
 deploy the MinIO tenant. 
 
 Click the :guilabel:`Configure` tab, then open the 
@@ -101,7 +101,7 @@ Click :guilabel:`ADD` to open the MinIO :guilabel:`Tenant Creation` modal.
    :class: no-scaled-link
    :alt: Add new MinIO Tenant
 
-.. _minio-vsphere-create-tenant-configuration:
+.. _minio-vcenter-create-tenant-configuration:
 
 2) Complete the :guilabel:`Tenant Configuration` Step
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -140,7 +140,7 @@ The :guilabel:`Tenant Configuration` step displays the following fields:
 
 Click :guilabel:`Next` to proceed to the next step.
 
-.. _minio-vsphere-create-configure:
+.. _minio-vcenter-create-configure:
 
 3) Complete the :guilabel:`Configure` Step
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -192,8 +192,8 @@ The :guilabel:`Configure` step displays the following fields:
            - Description
 
          * - :guilabel:`Set Custom Image Registry`
-           - Enables using a private Docker repository for retrieving docker
-             images for deploying the MinIO Tenant.
+           - Enables using a private Docker repository for retrieving Docker
+             images for deploying the MinIO tenant.
 
          * - :guilabel:`Endpoint`
            - The URL endpoint for the private Docker repository.
@@ -210,7 +210,7 @@ The :guilabel:`Configure` step displays the following fields:
 
              Only visible if :guilabel:`Set Custom Image Registry` is activated. 
 
-.. _minio-vsphere-create-idp:
+.. _minio-vcenter-create-idp:
 
 4) Complete the :guilabel:`IDP` Step
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -311,10 +311,10 @@ use. The default is :guilabel:`None`, or MinIO-managed identities.
            - Specify the Common Name (CN) attribute MinIO uses when querying for
              LDAP groups in which the authenticated user has membership.
 
-.. _minio-vsphere-create-security:
+.. _minio-vcenter-create-security:
 
-5) :guilabel:`Security`
-~~~~~~~~~~~~~~~~~~~~~~~
+5) Complete the :guilabel:`Security` Step
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note::
 
@@ -399,10 +399,10 @@ and custom TLS certificate generation for resources in the MinIO Tenant:
              connection request, it uses SNI to select the certificate with
              matching ``subjectAlternativeName``.
 
-.. _minio-vsphere-create-encryption:
+.. _minio-vcenter-create-encryption:
 
-6) :guilabel:`Encryption`
-~~~~~~~~~~~~~~~~~~~~~~~~~
+6) Complete the :guilabel:`Encryption` Step
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note::
 
@@ -569,10 +569,10 @@ Server-Side Encryption of Objects (SSE-S3) stored on the MinIO Tenant.
            - Specify the Certificate Authority ``*.crt`` file used to sign the
              *KeyVault/CipherTrust* TLS certificates.
 
-.. _minio-vsphere-create-tenant-size:
+.. _minio-vcenter-create-tenant-size:
 
-7) :guilabel:`Tenant Size`
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+7) Complete the :guilabel:`Tenant Size` Step
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The :guilabel:`Tenant Size` section contains configuration settings for
 nodes in the MinIO Tenant:
@@ -596,7 +596,7 @@ nodes in the MinIO Tenant:
 
        MinIO automatically calculates the number of volumes per node based on
        the specified storage size and the Storage Class selected in the
-       :ref:`Tenant Configuration <minio-vsphere-create-tenant-configuration>`
+       :ref:`Tenant Configuration <minio-vcenter-create-tenant-configuration>`
        step.
 
        The requested storage *must* be less than or equal to the available
@@ -658,7 +658,7 @@ specified configuration settings:
 
    * - :guilabel:`Erasure Code Parity`
      - The :ref:`Erasure Code parity <minio-erasure-coding>` selected 
-       during the :ref:`minio-vsphere-create-tenant-size` step.
+       during the :ref:`minio-vcenter-create-tenant-size` step.
 
    * - :guilabel:`Raw Capacity`
      - The total raw capacity of storage based on the 
@@ -674,10 +674,10 @@ specified configuration settings:
        the total estimated usable storage on the cluster.
 
 
-.. _minio-vsphere-create-preview:
+.. _minio-vcenter-create-preview:
 
-8) :guilabel:`Preview Configuration`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+8) Review the :guilabel:`Preview Configuration` Step
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The :guilabel:`Preview Configuration` section contains the details for the
 MinIO Tenant. Review the summary *before* proceeding to the next step.
@@ -690,18 +690,18 @@ MinIO Tenant. Review the summary *before* proceeding to the next step.
 
 - The :guilabel:`Name`, :guilabel:`Namespace`, and
   :guilabel:`Storage Class` settings are derived from the 
-  :ref:`minio-vsphere-create-tenant-configuration` section. 
+  :ref:`minio-vcenter-create-tenant-configuration` section. 
 
 - The :guilabel:`Nodes`, :guilabel:`Total Number of Volumes`, 
   :guilabel:`Volumes per Node`, :guilabel:`Disk Size`, 
   :guilabel:`Erasure Code Parity`, :guilabel:`Raw Capacity`, and
   :guilabel:`Usable Capacity` settings are derived from the
-  :ref:`minio-vsphere-create-tenant-size` section.
+  :ref:`minio-vcenter-create-tenant-size` section.
 
-.. _minio-vsphere-create-credentials:
+.. _minio-vcenter-create-credentials:
 
-9) :guilabel:`Credentials`
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+9) Review the :guilabel:`Credentials` Step
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The :guilabel:`Credentials` section contains the credentials required for
 connecting to the MinIO Tenant and MinIO Console.
@@ -760,7 +760,7 @@ creates the required resources for the Tenant.
 When the :guilabel:`Current State` reads as :guilabel:`Initialized`, the Tenant
 is ready to access.
 
-.. _minio-vsphere-create-connect:
+.. _minio-vcenter-create-connect:
 
 11) Connect to your Tenant
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -787,13 +787,13 @@ an alias for the new MinIO Tenant and retrieve its status:
 
 The ``--insecure`` option allows connecting to an endpoint using
 self-signed certificates, and may be required for Tenants created using
-:ref:`Autocert <minio-vsphere-create-security>` TLS certificate generation.
+:ref:`Autocert <minio-vcenter-create-security>` TLS certificate generation.
 
 You can also connect to the MinIO Console by clicking the 
 :guilabel:`Console Endpoint` URL and entering in the Console access key and 
 secret key.
 
-.. _minio-vsphere-create-vCPU-allocation:
+.. _minio-vcenter-create-vCPU-allocation:
 
 12) Modify vCPU Allocations for Tenant
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -802,15 +802,15 @@ secret key.
 allocated to each MinIO pod after deploying the tenant by doing the following:
 
 1. Download and install the 
-   :vmware-docs:`VMware Commandline Tools </7.0/vmware-vsphere-with-tanzu/GUID-0F6E45C4-3CB1-4562-9370-686668519FCA.html>`
+   :vmware-docs:`VMware Commandline Tools </7.0/vmware-vcenter-with-tanzu/GUID-0F6E45C4-3CB1-4562-9370-686668519FCA.html>`
 
 2. Use ``kubectl vsphere login`` to create a context for accessing the 
    |vcf| cluster. 
    
-   The vSphere user specified to the command *must* have 
+   The vCenter user specified to the command *must* have 
    permission to access and perform operations on the namespace in which 
    the tenant is deployed. See 
-   :vmware-docs:`Connecting to vSphere with Tanzu Clusters </7.0/vmware-vsphere-with-tanzu/GUID-FBB9722C-1BB4-4CF2-AB4C-A3ADB5FCC971.html>`
+   :vmware-docs:`Connecting to vCenter with Tanzu Clusters </7.0/vmware-vcenter-with-tanzu/GUID-FBB9722C-1BB4-4CF2-AB4C-A3ADB5FCC971.html>`
    for more specific instructions.
 
 3. Run the following command to modify the vCPU allocation for the tenant:

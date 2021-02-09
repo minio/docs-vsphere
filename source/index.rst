@@ -10,8 +10,11 @@ Welcome to the MinIO Object Storage documentation for
 
 MinIO is a Kubernetes-native object store designed to provide high performance
 with an S3-compatible API. |vcf| 4.2 includes MinIO's 
-vSphere plugin for provisioning multi-tenant object storage on VMware Tanzu
-Kubernetes infrastructure. 
+vCenter plugin for provisioning multi-tenant object storage on VMware Tanzu
+Kubernetes infrastructure. See 
+`MinIO Object Storage on VMware Cloud Foundation with Tanzu 
+<https://core.vmware.com/resource/minio-object-storage-vmware-cloud-foundation-tanzu>`__
+for additional information.
 
 This documentation assumes familiarity with all referenced Kubernetes
 and VMware concepts, utilities, and procedures. While this documentation *may* 
@@ -20,16 +23,20 @@ on a best-effort basis, it is not a replacement for the official
 :kube-docs:`Kubernetes Documentation <>` or 
 :vmware-docs:`VMware Documentation <index.html>`.
 
+This documentation summarizes core features and functionality of MinIO Object
+Storage. For more complete documentation, see the documentation for
+:docs-baremetal:`MinIO Object Storage for Baremetal <>`.
+
 Getting Started
 ---------------
 
 Use the :doc:`/tutorials/deploy-minio-tenant` guide to create a 
-MinIO tenant on using vSphere and the MinIO plugin.
+MinIO tenant on using VMware vCenter and the MinIO plugin.
 
 For managing an existing MinIO tenant, see 
 :doc:`/tutorials/manage-minio-tenant`.
 
-.. _minio-vsphere-inside-tenant:
+.. _minio-vcenter-inside-tenant:
 
 Inside a MinIO Tenant
 ---------------------
@@ -44,10 +51,10 @@ automatically deployed and managed by the MinIO plugin for |vcf|.
 Each tenant consists of the following core components:
 
 Zone
-   A set of MinIO server pods which pool their drives for supporting object
-   storage and retrieval requests. A MinIO tenant can have an unlimited number
-   of Zones, where each new Zone expands the total available storage on the
-   cluster.
+   A set of MinIO server pods which pool their drives
+   for supporting object storage and retrieval requests. A MinIO tenant can have
+   an unlimited number of Zones, where each new Zone expands the total available
+   storage on the cluster.
 
    The :guilabel:`Zone` terminology is unique to MinIO on |vcf| and 
    is equivalent in usage and behavior to :guilabel:`Server Pools` or 

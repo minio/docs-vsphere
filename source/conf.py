@@ -44,7 +44,8 @@ extensions = [
     'sphinx_markdown_tables',
     'sphinx-prompt',
     'sphinx_substitution_extensions',
-    'sphinx_togglebutton'
+    'sphinx_togglebutton',
+    'sphinx.ext.intersphinx',
 ]
 
 # -- External Links
@@ -53,17 +54,19 @@ extensions = [
 # Helpful for sites we tend to make lots of references to.
 
 extlinks = {
-    'kube-docs'   : ('https://kubernetes.io/docs/%s', ''),
-    'minio-git'   : ('https://github.com/minio/%s',''),
-    'github'      : ('https://github.com/%s',''),
-    'kube-api'    : ('https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/%s',''),
-    'aws-docs'    : ('https://docs.aws.amazon.com/%s',''),
-    's3-docs'     : ('https://docs.aws.amazon.com/AmazonS3/latest/dev/%s',''),
-    's3-api'      : ('https://docs.aws.amazon.com/AmazonS3/latest/API/%s',''),
-    'iam-docs'    : ('https://docs.aws.amazon.com/IAM/latest/UserGuide/%s',''),
-    'release'     : ('https://github.com/minio/mc/releases/tag/%s',''),
-    'legacy'      : ('https://docs.min.io/docs/%s',''),
-    'vmware-docs' : ('https://docs.vmware.com/en/VMware-vSphere/%s',''),
+    'kube-docs'      : ('https://kubernetes.io/docs/%s', ''),
+    'minio-git'      : ('https://github.com/minio/%s',''),
+    'github'         : ('https://github.com/%s',''),
+    'kube-api'       : ('https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/%s',''),
+    'aws-docs'       : ('https://docs.aws.amazon.com/%s',''),
+    's3-docs'        : ('https://docs.aws.amazon.com/AmazonS3/latest/dev/%s',''),
+    's3-api'         : ('https://docs.aws.amazon.com/AmazonS3/latest/API/%s',''),
+    'iam-docs'       : ('https://docs.aws.amazon.com/IAM/latest/UserGuide/%s',''),
+    'release'        : ('https://github.com/minio/mc/releases/tag/%s',''),
+    'legacy'         : ('https://docs.min.io/docs/%s',''),
+    'vmware-docs'    : ('https://docs.vmware.com/en/VMware-vSphere/%s',''),
+    'docs-baremetal' : ('https://docs.min.io/minio/baremetal/%s',''),
+    'docs-k8s'       : ('https://docs.min.io/minio/k8s/%s',''),
 }
 
 # Add any paths that contain templates here, relative to this directory.
@@ -129,3 +132,7 @@ rst_prolog = """
 
 
 """
+
+intersphinx_mapping = {
+    'baremetal': ('https://docs.min.io/minio/baremetal/', None)
+}

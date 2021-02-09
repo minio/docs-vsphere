@@ -1,4 +1,4 @@
-.. _minio-vsphere-production-considerations:
+.. _minio-vcenter-production-considerations:
 
 =========================
 Production Considerations
@@ -109,7 +109,7 @@ total network bandwidth supported by that pod:
 
    |vcf| 4.2 defaults MinIO pods to 1vCPU. You can modify the vCPU allocated 
    to each MinIO pod after deploying the tenant. See 
-   :ref:`minio-vsphere-create-vCPU-allocation` for instructions.
+   :ref:`minio-vcenter-create-vCPU-allocation` for instructions.
 
 Memory Allocation
 -----------------
