@@ -1,5 +1,5 @@
 =====================================
-MinIO for VMWare Cloud Foundation 4.2
+MinIO for VMware Cloud Foundation 4.2
 =====================================
 
 .. default-domain:: minio
