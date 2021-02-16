@@ -35,7 +35,7 @@ for instructions on downloading ``mc``.
 .. code-block:: shell
    :class: copyable
 
-   mc admin alias set <TENANT-NAME> <TENANT-URL> <ACCESS_KEY> <SECRET_KEY>
+   mc alias set <TENANT-NAME> <TENANT-URL> <ACCESS_KEY> <SECRET_KEY>
 
    mc admin prometheus generate <TENANT-NAME>
 
@@ -47,6 +47,8 @@ for instructions on downloading ``mc``.
 - Replace ``<ACCESS_KEY>`` and ``<SECRET_KEY>`` with the 
   :ref:`root credentials <minio-vcenter-create-credentials>` for the MinIO 
   tenant.
+
+- Add ``--insecure`` if using self signed certificates.
 
 The command returns a bearer token similar to the following:
 
