@@ -62,6 +62,20 @@ The command returns a bearer token similar to the following:
      static_configs:
      - targets: ['HOSTNAME:9000']
 
+If using a self signed certificate, add the following to skip verification.
+
+.. code-block:: shell
+
+   scrape_config:
+   - job_name: minio-job
+     bearer_token: TOKEN
+     metrics_path: <PATH>
+     scheme: http
+     static_configs:
+     - targets: ['HOSTNAME:9000']
+     tls_config:
+       insecure_skip_verify: true
+       
 The value of ``metrics_path`` depends on the version of ``mc`` is used to
 generate the bearer token:
 
