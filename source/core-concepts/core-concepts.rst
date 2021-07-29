@@ -14,7 +14,7 @@ Erasure Coding
 --------------
 
 For more complete documentation on MinIO Erasure Coding, see
-:docs-baremetal:`Erasure Coding <minio-features/erasure-coding>`. This section 
+:ref:`Erasure Coding <baremetal:minio-erasure-coding>`. This section 
 summarizes erasure coding in context of MinIO tenants on |vcf|.
 
 MinIO protects data with per-object inline erasure coding written in 

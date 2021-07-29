@@ -44,7 +44,7 @@ MinIO showcases best performance with locally-attached storage. MinIO
 therefore *strongly recommends* vSAN Direct storage policies when 
 provisioning MinIO tenant. See 
 :vmware-docs:`Set Up vSAN Direct for vCenter with Tanzu 
-<7.0/vmware-vcenter-with-tanzu/GUID-B096E155-D58C-4F01-9FF1-DB29B4801C6D.html>`
+<7.0/vmware-vsphere-with-tanzu/GUID-B096E155-D58C-4F01-9FF1-DB29B4801C6D.html>`
 for more complete instructions. 
    
 Namespace per MinIO Tenant
@@ -802,7 +802,7 @@ secret key.
 allocated to each MinIO pod after deploying the tenant by doing the following:
 
 1. Download and install the 
-   :vmware-docs:`VMware Commandline Tools </7.0/vmware-vcenter-with-tanzu/GUID-0F6E45C4-3CB1-4562-9370-686668519FCA.html>`
+   :vmware-docs:`VMware Commandline Tools </7.0/vmware-vsphere-with-tanzu/GUID-0F6E45C4-3CB1-4562-9370-686668519FCA.html>`
 
 2. Use ``kubectl vsphere login`` to create a context for accessing the 
    |vcf| cluster. 
@@ -810,7 +810,7 @@ allocated to each MinIO pod after deploying the tenant by doing the following:
    The vCenter user specified to the command *must* have 
    permission to access and perform operations on the namespace in which 
    the tenant is deployed. See 
-   :vmware-docs:`Connecting to vCenter with Tanzu Clusters </7.0/vmware-vcenter-with-tanzu/GUID-FBB9722C-1BB4-4CF2-AB4C-A3ADB5FCC971.html>`
+   :vmware-docs:`Connecting to vCenter with Tanzu Clusters </7.0/vmware-vsphere-with-tanzu/GUID-FBB9722C-1BB4-4CF2-AB4C-A3ADB5FCC971.html>`
    for more specific instructions.
 
 3. Run the following command to modify the vCPU allocation for the tenant:
